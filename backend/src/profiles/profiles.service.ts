@@ -6,6 +6,7 @@ import {
   clientProfiles,
   freelancerProfiles,
   freelancerSkills,
+  reviews,
   skills,
   users,
   UserRole,
@@ -146,6 +147,18 @@ export class ProfilesService {
     }
     const where = conditions.length ? and(...conditions) : undefined;
 
+    // Scor de completitudine a profilului (0–6): fiecare câmp completat = 1 punct.
+    const completeness = sql<number>`(
+      (case when ${freelancerProfiles.title} is not null and ${freelancerProfiles.title} <> '' then 1 else 0 end)
+      + (case when ${freelancerProfiles.overview} is not null and ${freelancerProfiles.overview} <> '' then 1 else 0 end)
+      + (case when ${freelancerProfiles.hourlyRateCents} is not null then 1 else 0 end)
+      + (case when ${users.avatarUrl} is not null and ${users.avatarUrl} <> '' then 1 else 0 end)
+      + (case when ${freelancerProfiles.countryCode} is not null and ${freelancerProfiles.countryCode} <> '' then 1 else 0 end)
+      + (case when exists (select 1 from ${freelancerSkills} fs where fs.freelancer_profile_id = ${freelancerProfiles.id}) then 1 else 0 end)
+    )`;
+    // Numărul de recenzii primite de freelancer.
+    const reviewCount = sql<number>`(select count(*) from ${reviews} r where r.reviewee_id = ${users.id})`;
+
     const rows = await this.db
       .select({
         id: freelancerProfiles.id,
@@ -162,7 +175,12 @@ export class ProfilesService {
       .from(freelancerProfiles)
       .innerJoin(users, eq(users.id, freelancerProfiles.userId))
       .where(where)
-      .orderBy(desc(freelancerProfiles.available), desc(freelancerProfiles.updatedAt))
+      .orderBy(
+        desc(completeness),
+        desc(reviewCount),
+        desc(freelancerProfiles.available),
+        desc(freelancerProfiles.updatedAt),
+      )
       .limit(limit)
       .offset(offset);
 

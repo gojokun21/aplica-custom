@@ -37,8 +37,7 @@ const columns = [
         <div class="lg:col-span-2">
           <img src="/logo.png" alt="aplica" class="h-9 w-auto" width="180" height="90" />
           <p class="mt-4 max-w-xs text-sm text-body">
-            Platforma unde clienții și freelancerii de top construiesc împreună. Talent verificat,
-            plăți sigure prin escrow.
+            Platforma unde clienții și freelancerii din Moldova se conectează și colaborează direct.
           </p>
         </div>
 

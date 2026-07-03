@@ -141,8 +141,8 @@ const initials = computed(() =>
             Salvează profilul
           </UiButton>
           <p class="mt-4 flex items-center gap-2 text-xs text-body">
-            <Icon name="lucide:shield-check" class="size-4 text-brand-600" />
-            Plăți protejate prin escrow
+            <Icon name="lucide:messages-square" class="size-4 text-brand-600" />
+            Discutați direct prin chat
           </p>
         </div>
       </aside>

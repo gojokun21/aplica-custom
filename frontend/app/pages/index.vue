@@ -31,12 +31,12 @@ const categories = [
 const clientSteps = [
   { n: '01', title: 'Postează proiectul', text: 'Descrie ce ai nevoie în câteva minute. Gratuit și fără obligații.' },
   { n: '02', title: 'Primește propuneri', text: 'Freelanceri verificați aplică cu portofoliu și tarife clare.' },
-  { n: '03', title: 'Colaborează în siguranță', text: 'Plătești prin escrow — banii se eliberează când ești mulțumit.' },
+  { n: '03', title: 'Colaborați direct', text: 'Discutați detaliile în chat și stabiliți colaborarea direct, fără intermediari.' },
 ];
 
 const features = [
   { icon: 'lucide:badge-check', title: 'Talent verificat', text: 'Identitate și skill-uri verificate pentru fiecare freelancer.' },
-  { icon: 'lucide:shield-check', title: 'Plăți protejate', text: 'Escrow integrat — banii sunt în siguranță până la livrare.' },
+  { icon: 'lucide:messages-square', title: 'Comunicare directă', text: 'Chat în timp real cu freelancerii, ca să stabiliți termenii împreună.' },
   { icon: 'lucide:sparkles', title: 'Potrivire rapidă', text: 'Recomandări relevante pentru proiectul tău, în minute.' },
   { icon: 'lucide:headset', title: 'Suport dedicat', text: 'O echipă reală te ajută la fiecare pas, oricând.' },
 ];
@@ -185,7 +185,7 @@ const features = [
     <section id="how" class="container-page py-16 lg:py-20">
       <div class="max-w-2xl">
         <h2 class="text-3xl font-bold sm:text-[2rem]">Cum funcționează</h2>
-        <p class="mt-2 text-body">De la idee la livrare în trei pași, cu plăți protejate.</p>
+        <p class="mt-2 text-body">De la idee la livrare în trei pași simpli.</p>
       </div>
 
       <div class="mt-10 grid gap-8 md:grid-cols-3">
