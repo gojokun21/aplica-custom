@@ -43,20 +43,20 @@ const statusClass: Record<string, string> = {
         </NuxtLink>
         <h1 class="mt-2 text-2xl font-bold text-ink">Joburile mele</h1>
       </div>
-      <UiButton to="/jobs/new"><Icon name="lucide:plus" class="size-4" /> Postează un job</UiButton>
+      <UiButton to="/proiecte/nou"><Icon name="lucide:plus" class="size-4" /> Postează un job</UiButton>
     </div>
 
     <div v-if="!jobs || jobs.length === 0" class="mt-8 rounded-xl border border-dashed border-slate-300 py-16 text-center">
       <Icon name="lucide:briefcase" class="mx-auto size-10 text-slate-300" />
       <p class="mt-3 font-medium text-ink">Nu ai postat niciun job încă</p>
-      <UiButton to="/jobs/new" class="mt-6">Postează primul job</UiButton>
+      <UiButton to="/proiecte/nou" class="mt-6">Postează primul job</UiButton>
     </div>
 
     <div v-else class="mt-6 space-y-4">
       <div v-for="j in jobs" :key="j.id" class="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div class="min-w-0">
-            <NuxtLink :to="`/jobs/${j.id}`" class="text-lg font-semibold text-ink hover:text-brand-700">{{ j.title }}</NuxtLink>
+            <NuxtLinkLocale :to="`/proiecte/${j.id}`" class="text-lg font-semibold text-ink hover:text-brand-700">{{ j.title }}</NuxtLinkLocale>
             <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-body">
               <span :class="['rounded-full px-2 py-0.5 text-xs font-semibold', statusClass[j.status]]">{{ statusLabel[j.status] }}</span>
               <span v-if="j.status === 'IN_PROGRESS' && j.deliveredAt" class="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">
@@ -65,7 +65,7 @@ const statusClass: Record<string, string> = {
               <span>{{ budget(j) }}</span>
             </div>
           </div>
-          <UiButton :to="`/jobs/${j.id}/applicants`" variant="outline" size="sm">
+          <UiButton :to="`/proiecte/${j.id}/aplicanti`" variant="outline" size="sm">
             {{ j.applicationsCount }} aplicanți
           </UiButton>
         </div>

@@ -1,0 +1,124 @@
+{
+  "common": {
+    "search": "Search",
+    "searchPlaceholder": "Try: React, UI/UX, copywriting…",
+    "loading": "Loading…",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "getStarted": "Get started free",
+    "exploreTalent": "Explore talent",
+    "createFreeAccount": "Create a free account",
+    "viewAllTalent": "View all talent",
+    "learnMore": "Learn more"
+  },
+  "nav": {
+    "findTalent": "Find talent",
+    "findProjects": "Find projects",
+    "howItWorks": "How it works",
+    "dashboard": "Dashboard",
+    "myProfile": "My profile",
+    "messages": "Messages",
+    "settings": "Settings",
+    "adminPanel": "Admin panel",
+    "myJobs": "My jobs",
+    "myApplications": "My applications",
+    "logout": "Log out",
+    "menu": "Menu"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "No notifications"
+  },
+  "home": {
+    "hero": {
+      "badge": "Freelancing marketplace from Moldova",
+      "title": "Work the way you actually want,",
+      "titleAccent": "for real",
+      "subtitle": "Connect directly with freelancers and clients from Moldova — development, design, marketing and more. No middlemen, no commissions.",
+      "searchAria": "Search talent",
+      "trustFree": "Free during the testing period",
+      "trustLocal": "Freelancers from Moldova"
+    },
+    "fork": {
+      "eyebrow": "Two ways to use aplica",
+      "title": "What brought you here?",
+      "client": {
+        "title": "I need someone",
+        "text": "Post a project for free, get proposals from freelancers in Moldova and choose who you want to work with.",
+        "b1": "Free to post, no strings attached",
+        "b2": "Proposals with portfolio and rates",
+        "b3": "Talk directly in chat",
+        "cta": "Post a project"
+      },
+      "freelancer": {
+        "title": "I'm looking for work",
+        "text": "Build your profile, apply to projects that fit you and talk directly with clients. No commission on your earnings.",
+        "b1": "Profile with portfolio and skills",
+        "b2": "Apply to relevant projects",
+        "b3": "No commissions during testing",
+        "cta": "Build your profile"
+      }
+    },
+    "explore": {
+      "eyebrow": "Explore",
+      "title": "Find experts by field",
+      "popular": "Popular:",
+      "domains": {
+        "web": "Web development",
+        "webHint": "Frontend, backend, full-stack",
+        "design": "Design & UI/UX",
+        "designHint": "Interfaces, branding, product",
+        "mobile": "Mobile apps",
+        "mobileHint": "iOS, Android, cross-platform",
+        "data": "Data & AI",
+        "dataHint": "Analytics, ML, automation",
+        "marketing": "Marketing",
+        "marketingHint": "Ads, SEO, social media",
+        "content": "Content",
+        "contentHint": "Copywriting, video, translations"
+      }
+    },
+    "steps": {
+      "eyebrow": "How it works",
+      "title": "From idea to collaboration, in three steps",
+      "s1Title": "Say what you're looking for",
+      "s1Text": "Post a project or build your profile. It takes a few minutes and it's free.",
+      "s2Title": "Get proposals",
+      "s2Text": "Freelancers apply with portfolio and clear rates. You choose who to talk to.",
+      "s3Title": "Collaborate directly",
+      "s3Text": "Discuss the details in chat and arrange the work between you, without middlemen."
+    },
+    "closing": {
+      "eyebrow": "Built in Moldova",
+      "title": "A platform where people find each other and work directly.",
+      "text": "We're just getting started and building together with the community. Accounts are free, with no costs during the testing period."
+    }
+  },
+  "footer": {
+    "tagline": "Freelancing marketplace from Moldova. Clients and freelancers connect and collaborate directly.",
+    "testingBadge": "In testing",
+    "forClients": "For clients",
+    "forFreelancers": "For freelancers",
+    "company": "Company",
+    "links": {
+      "howToHire": "How to hire",
+      "findTalent": "Find talent",
+      "postProject": "Post a project",
+      "howToEarn": "How to earn",
+      "findProjects": "Find projects",
+      "createProfile": "Create a profile",
+      "about": "About us",
+      "contact": "Contact",
+      "terms": "Terms & conditions",
+      "privacy": "Privacy"
+    },
+    "copyright": "aplica · Chișinău, Moldova"
+  },
+  "language": {
+    "label": "Language",
+    "ro": "Română",
+    "en": "English",
+    "ru": "Русский"
+  }
+}

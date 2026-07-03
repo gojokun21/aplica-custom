@@ -88,6 +88,8 @@ export const freelancerProfiles = pgTable('freelancer_profiles', {
     .notNull()
     .unique()
     .references(() => users.id, { onDelete: 'cascade' }),
+  /** Slug SEO din nume (ex. „ion-popescu”). Unic, folosit în URL-ul public. */
+  slug: varchar('slug', { length: 160 }).unique(),
   title: varchar('title', { length: 150 }),
   overview: text('overview'),
   /** Tarif orar în cenți USD (evită erori de virgulă mobilă). */

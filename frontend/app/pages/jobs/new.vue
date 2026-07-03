@@ -4,6 +4,7 @@ definePageMeta({ middleware: ['auth', 'client-only'] });
 interface Skill { id: string; name: string; slug: string }
 
 const { $api } = useNuxtApp();
+const localePath = useLocalePath();
 
 const title = ref('');
 const description = ref('');
@@ -46,7 +47,7 @@ async function submit() {
       body.maxRateCents = maxRate.value != null ? Math.round(maxRate.value * 100) : undefined;
     }
     const job = await $api<{ id: string }>('/jobs', { method: 'POST', body });
-    await navigateTo(`/jobs/${job.id}`);
+    await navigateTo(localePath(`/proiecte/${job.id}`));
   } catch (err: unknown) {
     const msg = (err as { data?: { message?: string | string[] } })?.data?.message;
     error.value = Array.isArray(msg) ? msg[0]! : msg || 'Crearea anunțului a eșuat.';
@@ -58,9 +59,9 @@ async function submit() {
 
 <template>
   <div class="container-page max-w-3xl py-10">
-    <NuxtLink to="/jobs" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
+    <NuxtLinkLocale to="/proiecte" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
       <Icon name="lucide:arrow-left" class="size-4" /> Proiecte
-    </NuxtLink>
+    </NuxtLinkLocale>
     <h1 class="mt-3 text-2xl font-bold text-ink">Postează un proiect nou</h1>
 
     <UiAlert v-if="error" variant="error" class="mt-6">{{ error }}</UiAlert>

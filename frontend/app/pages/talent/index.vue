@@ -7,6 +7,7 @@ interface Skill {
 interface FreelancerItem {
   id: string;
   userId: string;
+  slug: string | null;
   title: string | null;
   overview: string | null;
   hourlyRateCents: number | null;
@@ -27,6 +28,7 @@ interface FreelancerList {
 const route = useRoute();
 const router = useRouter();
 const { $api } = useNuxtApp();
+const localePath = useLocalePath();
 
 const searchInput = ref((route.query.q as string) || '');
 
@@ -57,7 +59,7 @@ function updateQuery(patch: Record<string, string | number | undefined>) {
   Object.keys(query).forEach((k) => {
     if (query[k] === '' || query[k] == null) delete query[k];
   });
-  router.push({ path: '/talent', query });
+  router.push(localePath({ path: '/talente', query }));
 }
 
 function submitSearch() {
@@ -163,7 +165,7 @@ function plain(html: string | null) {
         <NuxtLink
           v-for="f in data.items"
           :key="f.id"
-          :to="`/talent/${f.userId}`"
+          :to="localePath(f.slug ? `/utilizator/${f.slug}` : `/talente/${f.userId}`)"
           class="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-card transition-shadow hover:shadow-pop"
         >
           <div class="flex items-start gap-3">

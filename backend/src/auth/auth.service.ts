@@ -26,6 +26,7 @@ import {
   UserRole,
   users,
 } from '../db/schema';
+import { ensureUniqueSlug } from '../common/slug.util';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 
@@ -67,7 +68,14 @@ export class AuthService {
 
     // Creează profilul gol corespunzător rolului.
     if (role === 'FREELANCER') {
-      await this.db.insert(freelancerProfiles).values({ userId: user.id });
+      const slug = await ensureUniqueSlug(
+        email.split('@')[0] || `${dto.firstName} ${dto.lastName}`,
+        async (s) =>
+          !!(await this.db.query.freelancerProfiles.findFirst({
+            where: eq(freelancerProfiles.slug, s),
+          })),
+      );
+      await this.db.insert(freelancerProfiles).values({ userId: user.id, slug });
     } else if (role === 'CLIENT') {
       await this.db.insert(clientProfiles).values({ userId: user.id });
     }

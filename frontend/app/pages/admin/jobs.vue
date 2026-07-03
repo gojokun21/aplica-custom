@@ -81,7 +81,7 @@ const statusLabel: Record<string, string> = { OPEN: 'Deschis', IN_PROGRESS: 'În
         <tbody class="divide-y divide-slate-100">
           <tr v-for="j in data.items" :key="j.id" class="bg-white">
             <td class="px-4 py-3">
-              <NuxtLink :to="`/jobs/${j.id}`" class="font-medium text-ink hover:text-brand-700">{{ j.title }}</NuxtLink>
+              <NuxtLinkLocale :to="`/proiecte/${j.id}`" class="font-medium text-ink hover:text-brand-700">{{ j.title }}</NuxtLinkLocale>
             </td>
             <td class="px-4 py-3 text-body">{{ j.client.firstName }} {{ j.client.lastName }}</td>
             <td class="px-4 py-3"><span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">{{ statusLabel[j.status] }}</span></td>

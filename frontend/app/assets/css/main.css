@@ -1,33 +1,55 @@
 @import 'tailwindcss';
 
-/* -------------------------------------------------------------------------- */
-/*                      Design tokens (stil Upwork)                            */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  aplica — Design System „Editorial & uman"                                 */
+/*  Canvas cald · forest-ink · verde-pădure ca accent rar · Fraunces + Inter  */
+/* ========================================================================== */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* ----------------------------- Tipografie ------------------------------ */
+  --font-sans: 'Onest', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
 
-  /* Verde de brand — verdele Upwork #14a800. */
-  --color-brand-50: #edf7ed;
-  --color-brand-100: #cfeecb;
-  --color-brand-200: #a6e09e;
-  --color-brand-300: #74cf68;
-  --color-brand-400: #3fbb2f;
-  --color-brand-500: #1eab0a;
-  --color-brand-600: #14a800; /* primary */
-  --color-brand-700: #108a00; /* hover */
-  --color-brand-800: #0c6b00;
-  --color-brand-900: #0a5200;
+  /* ------------------------ Verde de brand (pădure) ---------------------- */
+  --color-brand-50: #edf4ee;
+  --color-brand-100: #d3e7d9;
+  --color-brand-200: #a9cfb6;
+  --color-brand-300: #74af89;
+  --color-brand-400: #468b62; /* accent pe fundal închis */
+  --color-brand-500: #24704a;
+  --color-brand-600: #16643e; /* primary */
+  --color-brand-700: #114e31; /* hover */
+  --color-brand-800: #0d3f28;
+  --color-brand-900: #0a3220;
 
-  /* „Ink” — verde foarte închis, aproape negru (text & secțiuni întunecate). */
-  --color-ink: #001e00;
-  --color-ink-800: #0a2a0a;
-  --color-ink-700: #13341a;
+  /* --------- „Ink” — verde-închis aproape-negru (text & secțiuni) -------- */
+  --color-ink: #12211a;
+  --color-ink-800: #1a2e23;
+  --color-ink-700: #24392c;
 
-  /* Text neutru cald, ca pe Upwork. */
-  --color-body: #5e6d55;
+  /* ------------------------- Canvas & text neutru ------------------------ */
+  --color-canvas: #fbfaf7; /* fundal cald al paginii */
+  --color-body: #59635b; /* text secundar cald */
 
-  --shadow-card: 0 0 0 1px rgb(0 30 0 / 0.06), 0 1px 3px rgb(0 30 0 / 0.06);
-  --shadow-pop: 0 4px 16px -4px rgb(0 30 0 / 0.16);
+  /* ------- Neutre CALDE: remapăm scara „slate” la un stone verde-cald ---- */
+  --color-slate-50: #f7f6f2;
+  --color-slate-100: #f0eee7;
+  --color-slate-200: #e5e2d8; /* borduri */
+  --color-slate-300: #d4d0c3;
+  --color-slate-400: #a8a493;
+  --color-slate-500: #837e6f;
+  --color-slate-600: #5f5b4f;
+  --color-slate-700: #46433a;
+  --color-slate-800: #2e2c26;
+  --color-slate-900: #1b1a15;
+
+  /* ------------------------------- Rază ---------------------------------- */
+  --radius-lg: 0.625rem; /* 10px */
+  --radius-xl: 0.875rem; /* 14px — cardurile & butoanele */
+  --radius-2xl: 1.125rem; /* 18px — carduri mari */
+
+  /* ------------------------------ Umbre ---------------------------------- */
+  --shadow-card: 0 1px 2px rgb(18 33 26 / 0.04), 0 0 0 1px rgb(18 33 26 / 0.05);
+  --shadow-pop: 0 16px 40px -16px rgb(18 33 26 / 0.22), 0 0 0 1px rgb(18 33 26 / 0.05);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -40,24 +62,41 @@
   }
 
   body {
-    @apply bg-white text-slate-600 antialiased;
+    @apply bg-canvas text-body antialiased;
   }
 
-  h1,
+  /* Titluri mari = Fraunces (voce editorială). UI headings rămân Inter. */
+  h1 {
+    @apply font-display font-semibold text-ink;
+    letter-spacing: -0.02em;
+  }
   h2,
   h3,
   h4 {
-    @apply font-semibold text-ink;
-    letter-spacing: -0.01em;
+    @apply font-sans font-semibold text-ink;
+    letter-spacing: -0.011em;
   }
 
-  /* Focus vizibil pentru accesibilitate. */
+  /* Focus vizibil, cald, pentru accesibilitate (WCAG). */
   :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-    @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-white;
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2;
+    --tw-ring-offset-color: var(--color-canvas);
   }
 
   ::selection {
-    @apply bg-brand-200 text-ink;
+    @apply bg-brand-100 text-ink;
+  }
+
+  /* Respectă utilizatorii care preferă mișcare redusă. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -66,20 +105,30 @@
 /* -------------------------------------------------------------------------- */
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8;
   }
 
-  /* Link în stil Upwork: verde, subliniat la hover. */
+  /* Voce editorială pentru display headings. */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Eyebrow / kicker — mic, majuscul, cu tracking. */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand-700;
+  }
+
+  /* Link editorial: verde, subliniere subtilă la hover. */
   .link {
-    @apply font-medium text-brand-600 underline decoration-brand-600/40 underline-offset-2 hover:text-brand-700 hover:decoration-brand-700;
+    @apply font-medium text-brand-700 underline decoration-brand-700/30 underline-offset-[3px] transition-colors hover:decoration-brand-700;
   }
 
-  /* Randare conținut HTML din editor (preflight resetează listele/link-urile). */
+  /* Rulează conținut HTML din editor (preflight resetează listele/link-urile). */
   .rich {
     @apply text-ink;
   }
   .rich p {
-    @apply my-2;
+    @apply my-2 leading-relaxed;
   }
   .rich ul {
     @apply my-2 list-disc pl-5;
@@ -91,22 +140,22 @@
     @apply my-0.5;
   }
   .rich a {
-    @apply font-medium text-brand-600 underline underline-offset-2 hover:text-brand-700;
+    @apply font-medium text-brand-700 underline underline-offset-2 hover:text-brand-800;
   }
   .rich strong,
   .rich b {
     @apply font-semibold;
   }
   .rich h1 {
-    @apply mt-6 mb-2 text-2xl font-bold text-ink;
+    @apply mt-6 mb-2 font-display text-2xl font-semibold text-ink;
   }
   .rich h2 {
-    @apply mt-5 mb-2 text-xl font-bold text-ink;
+    @apply mt-5 mb-2 text-xl font-semibold text-ink;
   }
   .rich h3 {
     @apply mt-4 mb-1.5 text-lg font-semibold text-ink;
   }
   .rich blockquote {
-    @apply my-3 border-l-4 border-slate-200 pl-4 text-body italic;
+    @apply my-3 border-l-2 border-brand-300 pl-4 text-body italic;
   }
 }

@@ -26,6 +26,7 @@ const route = useRoute();
 const router = useRouter();
 const { $api } = useNuxtApp();
 const { user } = useAuth();
+const localePath = useLocalePath();
 
 const searchInput = ref((route.query.q as string) || '');
 
@@ -54,7 +55,7 @@ const currentPage = computed(() => Number(route.query.page) || 1);
 function updateQuery(patch: Record<string, string | number | undefined>) {
   const query = { ...route.query, ...patch };
   Object.keys(query).forEach((k) => { if (query[k] === '' || query[k] == null) delete query[k]; });
-  router.push({ path: '/jobs', query });
+  router.push({ path: localePath('/proiecte'), query });
 }
 function submitSearch() { updateQuery({ q: searchInput.value || undefined, page: undefined }); }
 function toggleSkill(slug: string) { updateQuery({ skill: activeSkill.value === slug ? undefined : slug, page: undefined }); }
@@ -81,7 +82,7 @@ function plain(html: string) {
             <h1 class="text-3xl font-bold sm:text-4xl">Găsește proiecte</h1>
             <p class="mt-2 text-body">Anunțuri de la clienți, gata de aplicat.</p>
           </div>
-          <UiButton v-if="user?.role === 'CLIENT'" to="/jobs/new">
+          <UiButton v-if="user?.role === 'CLIENT'" to="/proiecte/nou">
             <Icon name="lucide:plus" class="size-4" /> Postează un job
           </UiButton>
         </div>
@@ -115,7 +116,7 @@ function plain(html: string) {
       </div>
 
       <div v-else class="mt-4 space-y-4">
-        <NuxtLink v-for="j in data.items" :key="j.id" :to="`/jobs/${j.id}`" class="block rounded-xl border border-slate-200 bg-white p-5 shadow-card transition-shadow hover:shadow-pop">
+        <NuxtLinkLocale v-for="j in data.items" :key="j.id" :to="`/proiecte/${j.id}`" class="block rounded-xl border border-slate-200 bg-white p-5 shadow-card transition-shadow hover:shadow-pop">
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0">
               <h3 class="truncate text-lg font-semibold text-ink hover:text-brand-700">{{ j.title }}</h3>
@@ -128,7 +129,7 @@ function plain(html: string) {
             <span v-for="s in j.skills.slice(0, 5)" :key="s.id" class="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-600">{{ s.name }}</span>
             <span class="ml-auto text-xs text-slate-400">{{ j.applicationsCount }} aplicanți</span>
           </div>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
 
       <div v-if="!pending && data.totalPages > 1" class="mt-10 flex items-center justify-center gap-1.5">

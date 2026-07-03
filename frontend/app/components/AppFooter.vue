@@ -3,72 +3,75 @@ const year = new Date().getFullYear();
 
 const columns = [
   {
-    title: 'Pentru clienți',
+    titleKey: 'footer.forClients',
     links: [
-      { label: 'Cum angajezi', to: '/#how' },
-      { label: 'Găsește talente', to: '/talent' },
-      { label: 'Postează un proiect', to: '/jobs/new' },
+      { labelKey: 'footer.links.howToHire', to: '/#how' },
+      { labelKey: 'footer.links.findTalent', to: '/talente' },
+      { labelKey: 'footer.links.postProject', to: '/proiecte/nou' },
     ],
   },
   {
-    title: 'Pentru freelanceri',
+    titleKey: 'footer.forFreelancers',
     links: [
-      { label: 'Cum câștigi', to: '/#how' },
-      { label: 'Găsește proiecte', to: '/jobs' },
-      { label: 'Creează profil', to: '/register' },
+      { labelKey: 'footer.links.howToEarn', to: '/#how' },
+      { labelKey: 'footer.links.findProjects', to: '/proiecte' },
+      { labelKey: 'footer.links.createProfile', to: '/register' },
     ],
   },
   {
-    title: 'Companie',
+    titleKey: 'footer.company',
     links: [
-      { label: 'Despre noi', to: '/' },
-      { label: 'Contact', to: '/' },
-      { label: 'Termeni și condiții', to: '/terms' },
-      { label: 'Confidențialitate', to: '/privacy' },
+      { labelKey: 'footer.links.about', to: '/' },
+      { labelKey: 'footer.links.contact', to: '/' },
+      { labelKey: 'footer.links.terms', to: '/terms' },
+      { labelKey: 'footer.links.privacy', to: '/privacy' },
     ],
   },
 ];
 </script>
 
 <template>
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="container-page py-14">
-      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+  <footer class="border-t border-slate-200 bg-canvas">
+    <div class="container-page py-16">
+      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
         <div class="lg:col-span-2">
           <img src="/logo.png" alt="aplica" class="h-9 w-auto" width="180" height="90" />
-          <p class="mt-4 max-w-xs text-sm text-body">
-            Platforma unde clienții și freelancerii din Moldova se conectează și colaborează direct.
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-body">
+            {{ $t('footer.tagline') }}
           </p>
+          <span class="mt-5 inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-700">
+            <span class="size-1.5 rounded-full bg-brand-600" /> {{ $t('footer.testingBadge') }}
+          </span>
         </div>
 
-        <div v-for="col in columns" :key="col.title">
-          <h3 class="text-sm font-semibold text-ink">{{ col.title }}</h3>
+        <div v-for="col in columns" :key="col.titleKey">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{{ $t(col.titleKey) }}</h3>
           <ul class="mt-4 space-y-3">
-            <li v-for="link in col.links" :key="link.label">
-              <NuxtLink
+            <li v-for="link in col.links" :key="link.labelKey">
+              <NuxtLinkLocale
                 :to="link.to"
-                class="text-sm text-body transition-colors hover:text-brand-600"
+                class="text-sm text-body transition-colors duration-150 hover:text-brand-700"
               >
-                {{ link.label }}
-              </NuxtLink>
+                {{ $t(link.labelKey) }}
+              </NuxtLinkLocale>
             </li>
           </ul>
         </div>
       </div>
 
       <div
-        class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row"
+        class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row"
       >
-        <p class="text-sm text-body">© {{ year }} aplica. Toate drepturile rezervate.</p>
-        <div class="flex items-center gap-4 text-slate-400">
-          <a href="#" aria-label="Twitter" class="hover:text-brand-600">
-            <Icon name="lucide:twitter" class="size-5" />
+        <p class="text-sm text-body">© {{ year }} {{ $t('footer.copyright') }}</p>
+        <div class="flex items-center gap-1">
+          <a href="#" aria-label="Facebook" class="flex size-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-brand-700">
+            <Icon name="lucide:facebook" class="size-[18px]" />
           </a>
-          <a href="#" aria-label="LinkedIn" class="hover:text-brand-600">
-            <Icon name="lucide:linkedin" class="size-5" />
+          <a href="#" aria-label="Instagram" class="flex size-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-brand-700">
+            <Icon name="lucide:instagram" class="size-[18px]" />
           </a>
-          <a href="#" aria-label="GitHub" class="hover:text-brand-600">
-            <Icon name="lucide:github" class="size-5" />
+          <a href="#" aria-label="LinkedIn" class="flex size-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-brand-700">
+            <Icon name="lucide:linkedin" class="size-[18px]" />
           </a>
         </div>
       </div>

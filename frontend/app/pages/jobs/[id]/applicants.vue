@@ -46,9 +46,9 @@ const jobClosed = computed(() => job.value && job.value.status !== 'OPEN');
 
 <template>
   <div class="container-page max-w-4xl py-10">
-    <NuxtLink :to="`/jobs/${route.params.id}`" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
+    <NuxtLinkLocale :to="`/proiecte/${route.params.id}`" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
       <Icon name="lucide:arrow-left" class="size-4" /> Înapoi la anunț
-    </NuxtLink>
+    </NuxtLinkLocale>
     <h1 class="mt-3 text-2xl font-bold text-ink">Aplicanți</h1>
     <p v-if="job" class="text-body">{{ job.title }}</p>
 
@@ -73,9 +73,9 @@ const jobClosed = computed(() => job.value && job.value.status !== 'OPEN');
           />
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-2">
-              <NuxtLink :to="`/talent/${a.freelancerId}`" class="font-semibold text-ink hover:text-brand-700">
+              <NuxtLinkLocale :to="`/talente/${a.freelancerId}`" class="font-semibold text-ink hover:text-brand-700">
                 {{ a.freelancer.firstName }} {{ a.freelancer.lastName }}
-              </NuxtLink>
+              </NuxtLinkLocale>
               <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">{{ statusLabel[a.status] }}</span>
             </div>
             <p v-if="a.freelancerProfile?.title" class="text-sm text-body">{{ a.freelancerProfile.title }}</p>

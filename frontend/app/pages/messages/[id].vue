@@ -100,9 +100,9 @@ function time(iso: string) {
         />
         <div class="min-w-0 flex-1">
           <p class="truncate font-semibold text-ink">{{ head.otherParty.firstName }} {{ head.otherParty.lastName }}</p>
-          <NuxtLink :to="`/jobs/${head.job.id}`" class="truncate text-xs text-body hover:text-brand-600">{{ head.job.title }}</NuxtLink>
+          <NuxtLinkLocale :to="`/proiecte/${head.job.id}`" class="truncate text-xs text-body hover:text-brand-600">{{ head.job.title }}</NuxtLinkLocale>
         </div>
-        <UiButton :to="`/jobs/${head.job.id}`" variant="outline" size="sm" class="shrink-0">
+        <UiButton :to="`/proiecte/${head.job.id}`" variant="outline" size="sm" class="shrink-0">
           <Icon name="lucide:briefcase" class="size-4" /> Vezi jobul
         </UiButton>
       </div>

@@ -67,7 +67,7 @@ async function removeReview(r: AdminReview) {
               <span class="text-sm text-body">{{ r.reviewee.firstName }} {{ r.reviewee.lastName }}</span>
             </div>
             <div v-if="r.comment" class="rich mt-1.5 text-sm text-body" v-html="r.comment" />
-            <NuxtLink :to="`/jobs/${r.job.id}`" class="mt-1 inline-block text-xs text-slate-400 hover:text-brand-600">{{ r.job.title }}</NuxtLink>
+            <NuxtLinkLocale :to="`/proiecte/${r.job.id}`" class="mt-1 inline-block text-xs text-slate-400 hover:text-brand-600">{{ r.job.title }}</NuxtLinkLocale>
           </div>
           <button class="shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 disabled:opacity-50" :disabled="busy === r.id" @click="removeReview(r)">Șterge</button>
         </div>

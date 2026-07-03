@@ -1,0 +1,124 @@
+{
+  "common": {
+    "search": "Caută",
+    "searchPlaceholder": "Caută: React, UI/UX, copywriting…",
+    "loading": "Se încarcă…",
+    "signIn": "Autentificare",
+    "signUp": "Înscrie-te",
+    "getStarted": "Începe gratuit",
+    "exploreTalent": "Explorează talente",
+    "createFreeAccount": "Creează cont gratuit",
+    "viewAllTalent": "Vezi toate talentele",
+    "learnMore": "Află mai multe"
+  },
+  "nav": {
+    "findTalent": "Găsește talente",
+    "findProjects": "Găsește proiecte",
+    "howItWorks": "Cum funcționează",
+    "dashboard": "Dashboard",
+    "myProfile": "Profilul meu",
+    "messages": "Mesaje",
+    "settings": "Setări",
+    "adminPanel": "Panou admin",
+    "myJobs": "Joburile mele",
+    "myApplications": "Aplicările mele",
+    "logout": "Deconectare",
+    "menu": "Meniu"
+  },
+  "notifications": {
+    "title": "Notificări",
+    "markAllRead": "Marchează toate citite",
+    "empty": "Nicio notificare"
+  },
+  "home": {
+    "hero": {
+      "badge": "Marketplace de freelancing din Moldova",
+      "title": "Cum vrei tu să muncești,",
+      "titleAccent": "pe bune",
+      "subtitle": "Conectează-te direct cu freelanceri și clienți din Moldova — development, design, marketing și mai mult. Fără intermediari, fără comisioane.",
+      "searchAria": "Caută talente",
+      "trustFree": "Gratuit în perioada de testare",
+      "trustLocal": "Freelanceri din Moldova"
+    },
+    "fork": {
+      "eyebrow": "Două moduri de a folosi aplica",
+      "title": "Ce te-a adus aici?",
+      "client": {
+        "title": "Am nevoie de cineva",
+        "text": "Postează un proiect gratuit, primește propuneri de la freelanceri din Moldova și alege cu cine vrei să lucrezi.",
+        "b1": "Postare gratuită, fără obligații",
+        "b2": "Propuneri cu portofoliu și tarife",
+        "b3": "Discuție directă în chat",
+        "cta": "Postează un proiect"
+      },
+      "freelancer": {
+        "title": "Caut de lucru",
+        "text": "Creează-ți profilul, aplică la proiecte care ți se potrivesc și vorbește direct cu clienții. Fără comisioane pe câștiguri.",
+        "b1": "Profil cu portofoliu și skill-uri",
+        "b2": "Aplică la proiecte relevante",
+        "b3": "Fără comisioane în testare",
+        "cta": "Creează-ți profilul"
+      }
+    },
+    "explore": {
+      "eyebrow": "Explorează",
+      "title": "Găsește experți după domeniu",
+      "popular": "Populare:",
+      "domains": {
+        "web": "Dezvoltare web",
+        "webHint": "Frontend, backend, full-stack",
+        "design": "Design & UI/UX",
+        "designHint": "Interfețe, branding, produs",
+        "mobile": "Aplicații mobile",
+        "mobileHint": "iOS, Android, cross-platform",
+        "data": "Data & AI",
+        "dataHint": "Analiză, ML, automatizări",
+        "marketing": "Marketing",
+        "marketingHint": "Ads, SEO, social media",
+        "content": "Conținut",
+        "contentHint": "Copywriting, video, traduceri"
+      }
+    },
+    "steps": {
+      "eyebrow": "Cum funcționează",
+      "title": "De la idee la colaborare, în trei pași",
+      "s1Title": "Spune ce cauți",
+      "s1Text": "Postează un proiect sau creează-ți profilul. Durează câteva minute și e gratuit.",
+      "s2Title": "Primește propuneri",
+      "s2Text": "Freelancerii aplică cu portofoliu și tarife clare. Tu alegi cu cine vorbești.",
+      "s3Title": "Colaborați direct",
+      "s3Text": "Discutați detaliile în chat și stabiliți colaborarea între voi, fără intermediari."
+    },
+    "closing": {
+      "eyebrow": "Construit în Moldova",
+      "title": "O platformă unde oamenii se găsesc și lucrează direct.",
+      "text": "Suntem la început și construim împreună cu comunitatea. Contul e gratuit, fără costuri în perioada de testare."
+    }
+  },
+  "footer": {
+    "tagline": "Marketplace de freelancing din Moldova. Clienții și freelancerii se conectează și colaborează direct.",
+    "testingBadge": "În perioada de testare",
+    "forClients": "Pentru clienți",
+    "forFreelancers": "Pentru freelanceri",
+    "company": "Companie",
+    "links": {
+      "howToHire": "Cum angajezi",
+      "findTalent": "Găsește talente",
+      "postProject": "Postează un proiect",
+      "howToEarn": "Cum câștigi",
+      "findProjects": "Găsește proiecte",
+      "createProfile": "Creează profil",
+      "about": "Despre noi",
+      "contact": "Contact",
+      "terms": "Termeni și condiții",
+      "privacy": "Confidențialitate"
+    },
+    "copyright": "aplica · Chișinău, Moldova"
+  },
+  "language": {
+    "label": "Limbă",
+    "ro": "Română",
+    "en": "English",
+    "ru": "Русский"
+  }
+}

@@ -7,6 +7,7 @@ import { eq } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import * as schema from './schema';
+import { ensureUniqueSlug } from '../common/slug.util';
 
 /**
  * Import freelanceri dintr-un dump WordPress (aplica.md / plugin „workfly").
@@ -254,8 +255,16 @@ async function main() {
       })
       .returning();
 
+    const slug = await ensureUniqueSlug(
+      c.email.split('@')[0] || `${c.firstName} ${c.lastName}`,
+      async (s) =>
+        !!(await db.query.freelancerProfiles.findFirst({
+          where: eq(schema.freelancerProfiles.slug, s),
+        })),
+    );
     await db.insert(schema.freelancerProfiles).values({
       userId: user.id,
+      slug,
       overview: overview || null,
       hourlyRateCents: c.hourlyRateCents,
       countryCode: DEFAULT_COUNTRY,

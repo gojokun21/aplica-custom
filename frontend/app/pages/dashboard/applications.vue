@@ -40,14 +40,14 @@ const statusClass: Record<string, string> = {
     <div v-if="!apps || apps.length === 0" class="mt-8 rounded-xl border border-dashed border-slate-300 py-16 text-center">
       <Icon name="lucide:file-text" class="mx-auto size-10 text-slate-300" />
       <p class="mt-3 font-medium text-ink">Nu ai aplicat la niciun proiect</p>
-      <UiButton to="/jobs" class="mt-6">Găsește proiecte</UiButton>
+      <UiButton to="/proiecte" class="mt-6">Găsește proiecte</UiButton>
     </div>
 
     <div v-else class="mt-6 space-y-4">
       <div v-for="a in apps" :key="a.id" class="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div class="min-w-0">
-            <NuxtLink :to="`/jobs/${a.job.id}`" class="text-lg font-semibold text-ink hover:text-brand-700">{{ a.job.title }}</NuxtLink>
+            <NuxtLinkLocale :to="`/proiecte/${a.job.id}`" class="text-lg font-semibold text-ink hover:text-brand-700">{{ a.job.title }}</NuxtLinkLocale>
             <p class="mt-0.5 text-sm text-body">{{ a.job.client.firstName }} {{ a.job.client.lastName }}</p>
           </div>
           <div class="flex flex-col items-end gap-2">

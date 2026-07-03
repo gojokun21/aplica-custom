@@ -163,6 +163,7 @@ export class ProfilesService {
       .select({
         id: freelancerProfiles.id,
         userId: freelancerProfiles.userId,
+        slug: freelancerProfiles.slug,
         title: freelancerProfiles.title,
         overview: freelancerProfiles.overview,
         hourlyRateCents: freelancerProfiles.hourlyRateCents,
@@ -227,20 +228,43 @@ export class ProfilesService {
     return { items, total, page, limit, totalPages: Math.ceil(total / limit) };
   }
 
-  /** Vizualizare publică a unui freelancer (fără date sensibile). */
+  /** Vizualizare publică după userId (fără date sensibile). */
   async getPublicFreelancer(userId: string) {
     const profile = await this.db.query.freelancerProfiles.findFirst({
       where: eq(freelancerProfiles.userId, userId),
-      with: {
-        user: true,
-        skills: { with: { skill: true } },
-      },
+      with: { user: true, skills: { with: { skill: true } } },
     });
+    return this.shapePublicProfile(profile);
+  }
+
+  /** Vizualizare publică după slug SEO (ex. /utilizator/ion-popescu). */
+  async getPublicFreelancerBySlug(slug: string) {
+    const profile = await this.db.query.freelancerProfiles.findFirst({
+      where: eq(freelancerProfiles.slug, slug),
+      with: { user: true, skills: { with: { skill: true } } },
+    });
+    return this.shapePublicProfile(profile);
+  }
+
+  private async shapePublicProfile(
+    profile:
+      | {
+          userId: string;
+          user: { id: string; firstName: string; lastName: string; avatarUrl: string | null };
+          skills: { skill: { id: string; name: string; slug: string } }[];
+          [key: string]: unknown;
+        }
+      | undefined,
+  ) {
     if (!profile) {
       throw new NotFoundException('Freelancer inexistent');
     }
     const shaped = this.shapeFreelancer(profile);
-    const rating = (await this.reviews.ratingSummary([userId])).get(userId) ?? { avg: 0, count: 0 };
+    const rating =
+      (await this.reviews.ratingSummary([profile.userId])).get(profile.userId) ?? {
+        avg: 0,
+        count: 0,
+      };
     return {
       ...shaped,
       user: {

@@ -47,7 +47,14 @@ export class ProfilesController {
     return this.profiles.listFreelancers(query);
   }
 
-  /** Vizualizare publică a profilului unui freelancer. */
+  /** Vizualizare publică după slug SEO (ex. ion-popescu). */
+  @Public()
+  @Get('freelancers/by-slug/:slug')
+  publicFreelancerBySlug(@Param('slug') slug: string) {
+    return this.profiles.getPublicFreelancerBySlug(slug);
+  }
+
+  /** Vizualizare publică a profilului unui freelancer după userId. */
   @Public()
   @Get('freelancers/:userId')
   publicFreelancer(@Param('userId') userId: string) {

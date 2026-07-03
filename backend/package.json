@@ -22,7 +22,10 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
+    "db:reset": "ts-node src/db/reset-db.ts && drizzle-kit migrate",
     "db:seed": "ts-node src/db/seed.ts",
+    "seed-admin": "ts-node src/db/seed-admin.ts",
+    "backfill-slugs": "ts-node src/db/backfill-slugs.ts",
     "make-admin": "ts-node src/db/make-admin.ts",
     "import-wp": "ts-node src/db/import-wp.ts"
   },

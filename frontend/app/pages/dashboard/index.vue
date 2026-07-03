@@ -3,6 +3,7 @@ definePageMeta({ middleware: 'auth' });
 
 const { user } = useAuth();
 const { $api } = useNuxtApp();
+const localePath = useLocalePath();
 
 const { data: profile } = await useAsyncData('dash-profile', () =>
   $api<Record<string, unknown>>('/profiles/me').catch(() => null),
@@ -75,8 +76,8 @@ const roleLabel = computed(() =>
         <p class="mt-1 text-sm text-body">Completează-ți datele pentru a ieși în evidență.</p>
       </NuxtLink>
 
-      <NuxtLink
-        :to="user?.role === 'CLIENT' ? '/talent' : '/projects'"
+      <NuxtLinkLocale
+        :to="user?.role === 'CLIENT' ? '/talente' : '/proiecte'"
         class="rounded-xl border border-slate-200 bg-white p-6 shadow-card transition-shadow hover:shadow-pop"
       >
         <Icon :name="user?.role === 'CLIENT' ? 'lucide:search' : 'lucide:briefcase'" class="size-7 text-brand-600" />
@@ -86,7 +87,7 @@ const roleLabel = computed(() =>
         <p class="mt-1 text-sm text-body">
           {{ user?.role === 'CLIENT' ? 'Caută freelanceri pentru proiectul tău.' : 'Descoperă joburi noi.' }}
         </p>
-      </NuxtLink>
+      </NuxtLinkLocale>
 
       <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
         <Icon name="lucide:circle-check-big" class="size-7" :class="user?.emailVerifiedAt ? 'text-brand-600' : 'text-slate-300'" />

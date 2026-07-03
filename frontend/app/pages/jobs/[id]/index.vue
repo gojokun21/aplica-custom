@@ -125,14 +125,14 @@ const statusLabel: Record<string, string> = { OPEN: 'Deschis', IN_PROGRESS: 'În
 
 <template>
   <div class="container-page py-10">
-    <NuxtLink to="/jobs" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
+    <NuxtLinkLocale to="/proiecte" class="flex items-center gap-1.5 text-sm text-body hover:text-brand-600">
       <Icon name="lucide:arrow-left" class="size-4" /> Înapoi la proiecte
-    </NuxtLink>
+    </NuxtLinkLocale>
 
     <div v-if="error" class="mt-10 rounded-xl border border-dashed border-slate-300 py-16 text-center">
       <Icon name="lucide:file-x" class="mx-auto size-10 text-slate-300" />
       <p class="mt-3 font-medium text-ink">Anunț inexistent</p>
-      <UiButton to="/jobs" variant="outline" class="mt-6">Vezi alte proiecte</UiButton>
+      <UiButton to="/proiecte" variant="outline" class="mt-6">Vezi alte proiecte</UiButton>
     </div>
 
     <div v-else-if="job" class="mt-6 grid gap-6 lg:grid-cols-3">
@@ -247,7 +247,7 @@ const statusLabel: Record<string, string> = { OPEN: 'Deschis', IN_PROGRESS: 'În
           </div>
 
           <div v-if="isOwner" class="mt-3">
-            <UiButton :to="`/jobs/${job.id}/applicants`" variant="outline" size="lg" block>Vezi aplicanții</UiButton>
+            <UiButton :to="`/proiecte/${job.id}/aplicanti`" variant="outline" size="lg" block>Vezi aplicanții</UiButton>
           </div>
           <div v-else-if="!user" class="mt-5">
             <UiButton to="/register" size="lg" block>Înscrie-te ca să aplici</UiButton>
