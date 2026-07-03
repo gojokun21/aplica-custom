@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Env & secrets (NU comite .env — conține parole/chei!)
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+.output/
+.nuxt/
+.nitro/
+.cache/
+*.tsbuildinfo
+
+# Runtime data
+backend/uploads/
+
+# Asset generat de postinstall (TinyMCE self-hosted)
+frontend/public/tinymce/
+
+# Loguri
+*.log
+logs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

@@ -1,0 +1,76 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1782993618779,
+      "tag": "0000_solid_invisible_woman",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1782994635148,
+      "tag": "0001_giant_pretty_boy",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1782997948032,
+      "tag": "0002_fearless_felicia_hardy",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1782999497607,
+      "tag": "0003_new_the_anarchist",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1783011475214,
+      "tag": "0004_cool_thunderball",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1783024704269,
+      "tag": "0005_early_nocturne",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1783026575379,
+      "tag": "0006_skinny_ogun",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1783027393235,
+      "tag": "0007_huge_smiling_tiger",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1783028772262,
+      "tag": "0008_white_randall",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1783034819485,
+      "tag": "0009_mature_zeigeist",
+      "breakpoints": true
+    }
+  ]
+}
